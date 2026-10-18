@@ -1,8 +1,17 @@
+-- =====================================================================
+-- 01_schema_ddl.sql  |  Digital Health Clinic & Diagnostic Lab Portal
+-- Owner: Member 1 (Database Architect)   |   Target: MySQL 8.0.16+
+-- (CHECK constraints are only enforced from 8.0.16 onwards)
+-- Run order for a clean setup: 01 -> 05 -> 03 -> 02 -> 04
+-- =====================================================================
+
 DROP DATABASE IF EXISTS clinic_portal;
 CREATE DATABASE clinic_portal CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE clinic_portal;
 
+-- ---------------------------------------------------------------------
 -- 1. Departments
+-- ---------------------------------------------------------------------
 CREATE TABLE Departments (
     dept_id     INT AUTO_INCREMENT PRIMARY KEY,
     dept_name   VARCHAR(80)  NOT NULL,
@@ -10,7 +19,9 @@ CREATE TABLE Departments (
     CONSTRAINT uq_dept_name UNIQUE (dept_name)
 ) ENGINE=InnoDB;
 
+-- ---------------------------------------------------------------------
 -- 2. Doctors  (N:1 Departments)
+-- ---------------------------------------------------------------------
 CREATE TABLE Doctors (
     doctor_id        INT AUTO_INCREMENT PRIMARY KEY,
     doctor_name      VARCHAR(100) NOT NULL,
@@ -29,7 +40,9 @@ CREATE TABLE Doctors (
         ON DELETE RESTRICT ON UPDATE CASCADE
 ) ENGINE=InnoDB;
 
+-- ---------------------------------------------------------------------
 -- 3. Patients
+-- ---------------------------------------------------------------------
 CREATE TABLE Patients (
     patient_id     INT AUTO_INCREMENT PRIMARY KEY,
     first_name     VARCHAR(50)  NOT NULL,
@@ -48,7 +61,14 @@ CREATE TABLE Patients (
         blood_group IN ('A+','A-','B+','B-','AB+','AB-','O+','O-'))
 ) ENGINE=InnoDB;
 
--- 4. Appointments  
+-- ---------------------------------------------------------------------
+-- 4. Appointments  (N:1 Patients, N:1 Doctors)
+--    Double-booking is blocked by (a) sp_book_appointment, which checks
+--    for an active booking under a row lock, and (b) Member 2's trigger
+--    trg_check_doctor_availability as a second line of defence.
+--    A plain UNIQUE(doctor, date, time) is deliberately NOT used: it
+--    would stop a slot being re-booked after a cancellation.
+-- ---------------------------------------------------------------------
 CREATE TABLE Appointments (
     appt_id      INT AUTO_INCREMENT PRIMARY KEY,
     patient_id   INT         NOT NULL,
@@ -59,6 +79,9 @@ CREATE TABLE Appointments (
     reason       VARCHAR(200),
     created_at   DATETIME    NOT NULL DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT chk_appt_status CHECK (status IN ('Scheduled','Completed','Cancelled')),
+    -- clinic hours 09:00-16:30 (last slot), 30-minute slots only
+    CONSTRAINT chk_appt_slot CHECK (appt_time BETWEEN '09:00:00' AND '16:30:00'
+                                    AND MINUTE(appt_time) IN (0, 30) AND SECOND(appt_time) = 0),
     CONSTRAINT fk_appt_patient FOREIGN KEY (patient_id)
         REFERENCES Patients(patient_id) ON DELETE RESTRICT ON UPDATE CASCADE,
     CONSTRAINT fk_appt_doctor FOREIGN KEY (doctor_id)
@@ -68,16 +91,22 @@ CREATE TABLE Appointments (
     INDEX idx_appt_date (appt_date)
 ) ENGINE=InnoDB;
 
--- 5. Medications
+-- ---------------------------------------------------------------------
+-- 5. Medications (master list)
+-- ---------------------------------------------------------------------
 CREATE TABLE Medications (
     med_id        INT AUTO_INCREMENT PRIMARY KEY,
     med_name      VARCHAR(100) NOT NULL,
-    form          VARCHAR(30),           
+    form          VARCHAR(30),            -- tablet, syrup, injection ...
     strength      VARCHAR(30),
     CONSTRAINT uq_medication UNIQUE (med_name, strength)
 ) ENGINE=InnoDB;
 
--- 6. Prescriptions 
+-- ---------------------------------------------------------------------
+-- 6. Prescriptions  (one row per prescribed medicine line)
+--    Child of Appointments: CASCADE (a line has no meaning without its
+--    appointment). Medication is RESTRICTed so history is never lost.
+-- ---------------------------------------------------------------------
 CREATE TABLE Prescriptions (
     prescription_id INT AUTO_INCREMENT PRIMARY KEY,
     appt_id         INT         NOT NULL,
@@ -94,7 +123,9 @@ CREATE TABLE Prescriptions (
         REFERENCES Medications(med_id)   ON DELETE RESTRICT ON UPDATE CASCADE
 ) ENGINE=InnoDB;
 
+-- ---------------------------------------------------------------------
 -- 7. Diagnostic_Tests (catalogue)
+-- ---------------------------------------------------------------------
 CREATE TABLE Diagnostic_Tests (
     test_id         INT AUTO_INCREMENT PRIMARY KEY,
     test_name       VARCHAR(100) NOT NULL,
@@ -109,8 +140,10 @@ CREATE TABLE Diagnostic_Tests (
                                      OR ref_range_low <= ref_range_high)
 ) ENGINE=InnoDB;
 
+-- ---------------------------------------------------------------------
 -- 8. Lab_Orders  (a test ordered during an appointment)
 --    Workflow: Ordered -> Sample Collected -> Completed
+-- ---------------------------------------------------------------------
 CREATE TABLE Lab_Orders (
     lab_order_id         INT AUTO_INCREMENT PRIMARY KEY,
     appt_id              INT         NOT NULL,
@@ -130,7 +163,10 @@ CREATE TABLE Lab_Orders (
     INDEX idx_lab_status (status)
 ) ENGINE=InnoDB;
 
--- 9. Bills 
+-- ---------------------------------------------------------------------
+-- 9. Bills  (exactly one bill per appointment)
+--    RESTRICT: financial records must not vanish with an appointment.
+-- ---------------------------------------------------------------------
 CREATE TABLE Bills (
     bill_id          INT AUTO_INCREMENT PRIMARY KEY,
     appt_id          INT          NOT NULL,
@@ -148,7 +184,9 @@ CREATE TABLE Bills (
         REFERENCES Appointments(appt_id) ON DELETE RESTRICT ON UPDATE CASCADE
 ) ENGINE=InnoDB;
 
--- 10. Audit_Logs
+-- ---------------------------------------------------------------------
+-- 10. Audit_Logs  (no FKs on purpose: a log must survive deletions)
+-- ---------------------------------------------------------------------
 CREATE TABLE Audit_Logs (
     log_id      INT AUTO_INCREMENT PRIMARY KEY,
     table_name  VARCHAR(50) NOT NULL,

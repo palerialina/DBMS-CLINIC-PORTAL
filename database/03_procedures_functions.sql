@@ -1,3 +1,13 @@
+-- =====================================================================
+-- 03_procedures_functions.sql | Owner: Member 1
+-- Atomic booking + billing procedures with START TRANSACTION / COMMIT /
+-- ROLLBACK.  Run AFTER 01_schema_ddl.sql.
+--
+-- ERROR CONVENTION (agreed with Members 2 & 3)
+--   Every business-rule failure is SQLSTATE '45000' and MESSAGE_TEXT
+--   starts with a code:  ERR_<CODE>: human readable text
+--   Streamlit shows the text after the first ': ' to the user.
+-- =====================================================================
 USE clinic_portal;
 
 DROP FUNCTION  IF EXISTS fn_lab_total;
@@ -6,7 +16,10 @@ DROP PROCEDURE IF EXISTS sp_generate_or_finalize_bill;
 
 DELIMITER //
 
+-- ---------------------------------------------------------------------
 -- fn_lab_total: sum of test costs ordered for an appointment.
+-- Reusable by the bill procedure and by Member 2's trigger.
+-- ---------------------------------------------------------------------
 CREATE FUNCTION fn_lab_total(p_appt_id INT)
 RETURNS DECIMAL(10,2)
 READS SQL DATA
@@ -19,8 +32,16 @@ BEGIN
     RETURN v_total;
 END//
 
+-- ---------------------------------------------------------------------
 -- sp_book_appointment
 --   Atomically books a slot.
+--   Atomicity  : any error -> ROLLBACK, nothing is inserted.
+--   Isolation  : SELECT ... FOR UPDATE on the doctor row serialises
+--                concurrent bookings for the same doctor, so two users
+--                cannot both pass the availability check.
+--   Consistency: patient/doctor must exist, date not in the past,
+--                slot must be free (cancelled bookings do not block).
+-- ---------------------------------------------------------------------
 CREATE PROCEDURE sp_book_appointment(
     IN  p_patient_id INT,
     IN  p_doctor_id  INT,
@@ -35,7 +56,7 @@ BEGIN
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
     BEGIN
         ROLLBACK;
-        RESIGNAL;          
+        RESIGNAL;          -- re-raise original error (incl. Member 2's trigger)
     END;
 
     SET p_appt_id = NULL;
@@ -57,6 +78,11 @@ BEGIN
         SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'ERR_PAST_DATE: Cannot book an appointment in the past';
     END IF;
 
+    IF p_appt_time < '09:00:00' OR p_appt_time > '16:30:00'
+       OR MINUTE(p_appt_time) NOT IN (0, 30) OR SECOND(p_appt_time) <> 0 THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'ERR_BAD_SLOT: Slots run 09:00-16:30 in 30-minute steps';
+    END IF;
+
     SELECT COUNT(*) INTO v_cnt
     FROM Appointments
     WHERE doctor_id = p_doctor_id
@@ -75,7 +101,15 @@ BEGIN
     COMMIT;
 END//
 
+-- ---------------------------------------------------------------------
 -- sp_generate_or_finalize_bill
+--   p_action = 'GENERATE' : create (or recompute) the bill, status
+--                           'Generated'. All lab orders must be Completed.
+--   p_action = 'PAY'      : mark the bill 'Paid' (totals recomputed one
+--                           last time), appointment -> 'Completed'.
+--   Everything runs in ONE transaction: a failure at any step leaves the
+--   bill and appointment exactly as they were.
+-- ---------------------------------------------------------------------
 CREATE PROCEDURE sp_generate_or_finalize_bill(
     IN  p_appt_id       INT,
     IN  p_action        VARCHAR(10),
@@ -113,6 +147,7 @@ BEGIN
         SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'ERR_APPT_NOT_FOUND: Appointment does not exist';
     END IF;
 
+    -- lock the appointment so two clerks cannot bill it at the same time
     SELECT status, doctor_id INTO v_appt_status, v_doctor_id
     FROM Appointments WHERE appt_id = p_appt_id FOR UPDATE;
 
@@ -152,7 +187,7 @@ BEGIN
             WHERE bill_id = p_bill_id;
         END IF;
 
-    ELSE  
+    ELSE  -- PAY
         IF v_cnt = 0 THEN
             SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'ERR_NO_BILL: Generate the invoice before taking payment';
         END IF;

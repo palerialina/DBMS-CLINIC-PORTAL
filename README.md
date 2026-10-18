@@ -12,7 +12,7 @@ clinic_portal/
 ├── requirements.txt
 ├── database/
 │   ├── 00_setup_all.sql           loads 01 → 05 in order (resets the database)
-│   ├── 01_schema_ddl.sql          Member 1   10 tables, PK/FK/CHECK/UNIQUE
+│   ├── 01_schema_ddl.sql          Member 1   10 tables, PK/FK/CHECK/UNIQUE (incl. 09:00–16:30 slot CHECK)
 │   ├── 02_triggers.sql            Member 2   3 triggers (double booking, auto bill update, audit)
 │   ├── 03_procedures_functions.sql Member 1  sp_book_appointment, sp_generate_or_finalize_bill, fn_lab_total
 │   ├── 04_views_queries.sql       Member 2   3 views + 10 analytical queries
@@ -26,7 +26,9 @@ clinic_portal/
 │   ├── lab_tab.py                 Member 2   sample collection and result entry
 │   └── billing_tab.py             Member 3   billing desk + analytics dashboard
 └── docs/
-    ├── dbms_proj.drawio / .png    Member 1   ER diagram
+    ├── ER_Diagram_Chen.drawio     Member 1   ER diagram (Chen notation, weak entities, all attributes)
+    ├── Normalization_and_Design_Decisions.md  Member 1   UNF → BCNF proof, CASCADE/RESTRICT reasons
+    ├── dbms_proj.drawio / .png    Member 1   earlier ER diagram (superseded)
     └── TEAM_REVIEW.md             integration review notes
 ```
 
@@ -42,8 +44,10 @@ clinic_portal/
    cd database
    mysql -u root -p < 00_setup_all.sql
    ```
+   If your MySQL client rejects the `SOURCE` lines, log in with `mysql -u root -p` from inside
+   `database/` and run `source 01_schema_ddl.sql;` then 02, 03, 04 and 05 the same way.
 4. Optional, for test evidence: `mysql -u root -p --force --table clinic_portal < 06_backend_tests.sql`
-   Expect exactly 21 `ERROR` lines; every one is labelled `EXPECT ERROR` in the script.
+   Expect exactly 24 `ERROR` lines; every one is labelled `EXPECT ERROR` or `EXPECT ERR_...` in the script.
 
 ## Run the app
 
@@ -74,6 +78,7 @@ flowchart LR
     D2 --> B1
     B1 --> B2[Take payment<br/>bill Paid, visit Completed]
     R2 -. same slot again .-> X1[[ERR_DOUBLE_BOOKING]]
+    R2 -. time outside 09:00-16:30 / not :00 or :30 .-> X3[[ERR_BAD_SLOT]]
     B1 -. labs still pending .-> X2[[ERR_LABS_PENDING]]
     R2 -. cancel .-> A1[(Audit_Logs<br/><i>trg_audit_appointment_cancellation</i>)]
 ```
@@ -82,7 +87,7 @@ Each desk maps to one tab:
 
 | Tab | Who uses it | Database objects it exercises |
 |---|---|---|
-| Reception | Front desk | `Patients` INSERT (UNIQUE phone), `sp_book_appointment`, cancel → audit trigger |
+| Reception | Front desk | `Patients` INSERT (UNIQUE phone), `sp_book_appointment` (slot CHECK, double-booking rule), cancel → audit trigger |
 | Doctor Desk | Doctor | `Prescriptions`, `Lab_Orders` INSERT → `trg_update_bill_on_lab_order` |
 | Diagnostic Lab | Lab technician | `vw_pending_lab_reports`, status workflow Ordered → Sample Collected → Completed |
 | Billing & Analytics | Cashier, manager | `sp_generate_or_finalize_bill` (GENERATE / PAY), GROUP BY / HAVING analytics, `Audit_Logs` |

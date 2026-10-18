@@ -54,6 +54,14 @@ SELECT 'A7 CHECK: reversed reference range -- EXPECT ERROR 3819' AS test;
 INSERT INTO Diagnostic_Tests(test_name,category,ref_range_low,ref_range_high,cost)
 VALUES ('ZZ_BadRange','Blood',200,100,50);
 
+SELECT 'A8 CHECK: slot time 08:15 (outside hours / not a 30-min slot) -- EXPECT ERROR 3819' AS test;
+INSERT INTO Appointments(patient_id,doctor_id,appt_date,appt_time)
+VALUES (@pat,@doc,CURDATE() + INTERVAL 30 DAY,'08:15:00');
+
+SELECT 'A9 CHECK: slot time 16:45 (after last slot) -- EXPECT ERROR 3819' AS test;
+INSERT INTO Appointments(patient_id,doctor_id,appt_date,appt_time)
+VALUES (@pat,@doc,CURDATE() + INTERVAL 30 DAY,'16:45:00');
+
 -- ---------------------------------------------------------------------
 SELECT '=== B. PROCEDURE + TRANSACTION TESTS ===' AS section;
 
@@ -76,6 +84,9 @@ CALL sp_book_appointment(@pat, 999999, @day, '11:00:00', NULL, @x);
 
 SELECT 'B5 past date -- EXPECT ERR_PAST_DATE' AS test;
 CALL sp_book_appointment(@pat, @doc, CURDATE() - INTERVAL 1 DAY, '11:00:00', NULL, @x);
+
+SELECT 'B5b invalid slot time 10:15 -- EXPECT ERR_BAD_SLOT' AS test;
+CALL sp_book_appointment(@pat, @doc, @day, '10:15:00', NULL, @x);
 
 SELECT 'B6 cancelled slot can be rebooked -- EXPECT success' AS test;
 UPDATE Appointments SET status='Cancelled' WHERE appt_id=@appt1;
