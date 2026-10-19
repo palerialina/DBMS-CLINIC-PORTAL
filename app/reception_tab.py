@@ -2,32 +2,32 @@
 app/reception_tab.py  --  Tab 1: Receptionist Portal (Member 1 + Member 3).
 Patient registration, appointment booking (via sp_book_appointment),
 and viewing / cancelling appointments.
-
+ 
 Day 6 fix (Week 2): the registration form now rejects an email without a
 valid name@domain.tld shape (test case 6 previously saved it).
 """
 import re
 from datetime import date, datetime, time, timedelta
-
+ 
 import pandas as pd
 import streamlit as st
 from mysql.connector import Error
-
+ 
 from db_connection import call_proc, friendly_error, run_query, run_write
-
+ 
 SLOTS = [time(9, 0)]
 while SLOTS[-1] < time(16, 30):                       # 09:00 .. 16:30, every 30 min
     SLOTS.append((datetime.combine(date.today(), SLOTS[-1]) + timedelta(minutes=30)).time())
-
+ 
 # something@something.something, with no spaces and exactly one "@"
 EMAIL_PATTERN = re.compile(r"[^@\s]+@[^@\s]+\.[^@\s]+")
-
-
+ 
+ 
 def _to_time(v):
     """MySQL TIME columns arrive as timedelta; convert to datetime.time."""
     return (datetime.min + v).time() if isinstance(v, timedelta) else v
-
-
+ 
+ 
 def _register_patient():
     st.subheader("Register new patient")
     with st.form("register_patient", clear_on_submit=True):
@@ -42,14 +42,14 @@ def _register_patient():
         blood = c1.selectbox("Blood group", ["", "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"])
         address = c2.text_input("Address")
         submitted = st.form_submit_button("Register patient")
-
+ 
     if submitted:
         first = first.strip()
         last = last.strip()
         phone = phone.strip()
         email = email.strip() or None        # blank email is stored as NULL, so UNIQUE never clashes on ''
         address = address.strip() or None
-
+ 
         if not first or not last:
             st.error("First and last name are required.")
         elif not (phone.isdigit() and len(phone) == 10):
@@ -66,8 +66,8 @@ def _register_patient():
                 st.success(f"Patient registered. Patient ID = {pid}")
             except Error as e:
                 st.error(friendly_error(e))
-
-
+ 
+ 
 def _book_appointment():
     st.subheader("Book appointment")
     try:
@@ -87,7 +87,7 @@ def _book_appointment():
     if not departments:
         st.warning("No departments found. Load the sample data first.")
         return
-
+ 
     patient = st.selectbox(
         "Patient", patients, key="rc_patient",
         format_func=lambda p: f"{p['patient_id']} - {p['first_name']} {p['last_name']} ({p['phone']})")
@@ -101,7 +101,7 @@ def _book_appointment():
     doctor = st.selectbox("Doctor", doctors, key="rc_doctor",
                           format_func=lambda d: f"{d['doctor_name']} (fee {d['consultation_fee']})")
     appt_date = st.date_input("Date", min_value=date.today(), key="rc_date")
-
+ 
     booked = {_to_time(r["appt_time"]) for r in run_query(
         "SELECT appt_time FROM Appointments WHERE doctor_id = %s AND appt_date = %s AND status <> 'Cancelled'",
         (doctor["doctor_id"], appt_date))}
@@ -113,7 +113,7 @@ def _book_appointment():
     slot = st.selectbox("Time slot", options, key="rc_slot",
                         format_func=lambda s: s.strftime("%H:%M") + ("  (booked)" if s in booked else ""))
     reason = st.text_input("Reason for visit", key="rc_reason")
-
+ 
     if st.button("Book appointment", type="primary", key="rc_book"):
         try:
             result = call_proc("sp_book_appointment",
@@ -122,8 +122,8 @@ def _book_appointment():
             st.success(f"Appointment booked. Appointment ID = {result[5]}")
         except Error as e:
             st.error(friendly_error(e))         # e.g. 'Doctor already has an appointment at this time'
-
-
+ 
+ 
 def _upcoming_and_cancel():
     st.subheader("Upcoming appointments")
     try:
@@ -142,7 +142,7 @@ def _upcoming_and_cancel():
     for r in rows:
         r["appt_time"] = _to_time(r["appt_time"]).strftime("%H:%M")
     st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
-
+ 
     scheduled = [r for r in rows if r["status"] == "Scheduled"]
     if scheduled:
         target = st.selectbox(
@@ -155,8 +155,8 @@ def _upcoming_and_cancel():
                 st.success("Appointment cancelled (the audit trigger logs this in Audit_Logs).")
             except Error as e:
                 st.error(friendly_error(e))
-
-
+ 
+ 
 def render_reception_tab():
     left, right = st.columns(2)
     with left:
@@ -165,4 +165,4 @@ def render_reception_tab():
         _book_appointment()
     st.divider()
     _upcoming_and_cancel()
-
+ 
