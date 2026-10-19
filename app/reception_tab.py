@@ -2,7 +2,11 @@
 app/reception_tab.py  --  Tab 1: Receptionist Portal (Member 1 + Member 3).
 Patient registration, appointment booking (via sp_book_appointment),
 and viewing / cancelling appointments.
+
+Day 6 fix (Week 2): the registration form now rejects an email without a
+valid name@domain.tld shape (test case 6 previously saved it).
 """
+import re
 from datetime import date, datetime, time, timedelta
 
 import pandas as pd
@@ -14,6 +18,9 @@ from db_connection import call_proc, friendly_error, run_query, run_write
 SLOTS = [time(9, 0)]
 while SLOTS[-1] < time(16, 30):                       # 09:00 .. 16:30, every 30 min
     SLOTS.append((datetime.combine(date.today(), SLOTS[-1]) + timedelta(minutes=30)).time())
+
+# something@something.something, with no spaces and exactly one "@"
+EMAIL_PATTERN = re.compile(r"[^@\s]+@[^@\s]+\.[^@\s]+")
 
 
 def _to_time(v):
@@ -37,17 +44,24 @@ def _register_patient():
         submitted = st.form_submit_button("Register patient")
 
     if submitted:
-        if not first.strip() or not last.strip():
+        first = first.strip()
+        last = last.strip()
+        phone = phone.strip()
+        email = email.strip() or None        # blank email is stored as NULL, so UNIQUE never clashes on ''
+        address = address.strip() or None
+
+        if not first or not last:
             st.error("First and last name are required.")
         elif not (phone.isdigit() and len(phone) == 10):
             st.error("Phone must be exactly 10 digits.")
+        elif email and not EMAIL_PATTERN.fullmatch(email):
+            st.error("Please enter a valid email address, like name@mail.com.")
         else:
             try:
                 pid = run_write(
                     "INSERT INTO Patients (first_name, last_name, dob, gender, phone, email, address, blood_group) "
                     "VALUES (%s, %s, %s, %s, %s, %s, %s, %s)",
-                    (first.strip(), last.strip(), dob, gender, phone,
-                     email.strip() or None, address.strip() or None, blood or None),
+                    (first, last, dob, gender, phone, email, address, blood or None),
                 )
                 st.success(f"Patient registered. Patient ID = {pid}")
             except Error as e:
@@ -151,3 +165,4 @@ def render_reception_tab():
         _book_appointment()
     st.divider()
     _upcoming_and_cancel()
+
