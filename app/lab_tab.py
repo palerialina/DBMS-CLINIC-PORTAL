@@ -17,6 +17,13 @@ All SQL uses %s placeholders (parameterized), never string formatting.
 import mysql.connector
 import streamlit as st
 
+try:                                    # inside the main app: same messages as every other tab
+    from db_connection import friendly_error
+except ImportError:                     # stand-alone test mode without db_connection.py
+    def friendly_error(err):
+        msg = getattr(err, "msg", None) or str(err)
+        return msg.split(": ", 1)[-1] if "ERR_" in msg else msg
+
 
 # ---------------------------------------------------------------- helpers
 def _query(get_conn, sql, params=None):
@@ -110,7 +117,7 @@ def _collect_panel(get_conn, pending):
                 (order["lab_order_id"],),
             )
         except mysql.connector.Error as e:
-            st.error(f"Database error: {e.msg}")
+            st.error(friendly_error(e))
             return
         if changed == 0:
             st.warning("This order was already updated by someone else. Refreshing.")
@@ -173,7 +180,7 @@ def _result_panel(get_conn, pending):
                 (stored_value, notes.strip() or None, oid),
             )
         except mysql.connector.Error as e:
-            st.error(f"Database error: {e.msg}")
+            st.error(friendly_error(e))
             return
         if changed == 0:
             st.warning("This order was already updated by someone else. Refreshing.")

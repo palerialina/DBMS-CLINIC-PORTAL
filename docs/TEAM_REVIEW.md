@@ -17,8 +17,10 @@ and the app was driven through a full patient journey in all four tabs.
 | 02_triggers.sql | Kanishka | ✅ received 16 Oct; all triggers work |
 | 04_views_queries.sql | Kanishka | ✅ received 16 Oct; 3 views + Q1–Q10 run, lab tab columns match |
 | 05_sample_data.sql | Kanishka | ✅ received 16 Oct; meets the counts, but see note 1 |
-| Trigger stress tests | Kanishka | ❌ not received |
-| db_connection.py, app.py, billing_tab.py | Member 3 | ✅ done |
+| 07_trigger_stress_tests.sql | Kanishka | ✅ received; Test 1 fixed by Member 3 (reads appointment 10's slot instead of a hard-coded date) |
+| db_connection.py, app.py, billing_tab.py | Member 3 | ✅ done; 20 Oct: paid invoices downloadable |
+| 05b_dashboard_history.sql | Member 3 | ✅ 20 Oct: ~150 past visits over 90 days for the dashboard (answers note 1 and 2 below) |
+| Integration tests (Week 3) | Member 3 | ✅ `docs/Integration_Test_Cases.md`: 10/10 pass |
 
 Verified on 16 Oct with Kanishka's files loaded: Riya's 26 backend tests still pass, all four
 tabs load without errors, ordering a test on an invoiced visit reprices the bill and sends it
@@ -31,6 +33,12 @@ tabs load without errors, and a 10:15 booking shows the clean message
 needed no change: the bill procedure kept its five parameters.
 
 ## For Kanishka
+
+Update 20 Oct: notes 1–3 and 5 are handled. `05b_dashboard_history.sql` adds the past visits
+and real audit rows (please review it, and fold it into `05` if you prefer); `07_trigger_stress_tests.sql`
+is in the repo with Test 1 fixed; `lab_tab.py` now uses `friendly_error` (two lines). Note 4 is still for the viva.
+One thing left in `05`: its 9 paid bills all have `paid_at` on yesterday, which shows as a spike on the
+*Revenue per day* chart. Using the appointment date for `paid_at` would remove it.
 
 1. **Seed data is too thin for the dashboard.** The counts match the brief (5 / 10 / 22 / 15),
    but there are only 16 appointments and 8 paid bills, and every `paid_at` falls on the last
@@ -80,7 +88,9 @@ Still worth a look before the viva:
 - `app.py`: passes `get_connection` to `render_lab_tab()` (the skeleton called it with no
   arguments, which crashed the tab). A real error inside one tab no longer shows up as
   "not integrated yet", and a sidebar shows today's visits, lab queue and unpaid bills.
-- `reception_tab.py`, `doctor_tab.py`, `lab_tab.py`: **unchanged**.
+- `reception_tab.py`: email-format check added (Week 2). `doctor_tab.py`: unchanged.
+- `lab_tab.py`: 20 Oct, errors now shown through `friendly_error()` like every other tab (2 lines + import).
+- `billing_tab.py`: 20 Oct, *Recently paid* has a *Download paid invoice* button.
 - 18 Oct: Riya's updated `01`, `03`, `06` replaced the old ones; no app code had to change.
   Every slot the Reception tab offers (09:00–16:30, every 30 min) already satisfies the new CHECK,
   and all of Kanishka's sample appointments use valid slot times.

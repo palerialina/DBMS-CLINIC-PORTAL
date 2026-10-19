@@ -11,13 +11,15 @@ MySQL 8 database + a four-desk Streamlit app.
 clinic_portal/
 ├── requirements.txt
 ├── database/
-│   ├── 00_setup_all.sql           loads 01 → 05 in order (resets the database)
+│   ├── 00_setup_all.sql           loads 01 → 05 + 05b in order (resets the database)
 │   ├── 01_schema_ddl.sql          Member 1   10 tables, PK/FK/CHECK/UNIQUE (incl. 09:00–16:30 slot CHECK)
 │   ├── 02_triggers.sql            Member 2   3 triggers (double booking, auto bill update, audit)
 │   ├── 03_procedures_functions.sql Member 1  sp_book_appointment, sp_generate_or_finalize_bill, fn_lab_total
 │   ├── 04_views_queries.sql       Member 2   3 views + 10 analytical queries
 │   ├── 05_sample_data.sql         Member 2   seed data (5 depts, 10 doctors, 22 tests, 15 patients)
-│   └── 06_backend_tests.sql       Member 1   constraint / procedure / cascade test evidence
+│   ├── 05b_dashboard_history.sql  Member 3   ~150 past visits over 90 days for the Analytics dashboard
+│   ├── 06_backend_tests.sql       Member 1   constraint / procedure / cascade test evidence
+│   └── 07_trigger_stress_tests.sql Member 2  double-booking + audit trigger tests
 ├── app/
 │   ├── app.py                     Member 3   entry point, sidebar, tab loader
 │   ├── db_connection.py           Member 3   connection pool + parameterized helpers
@@ -29,6 +31,9 @@ clinic_portal/
     ├── ER_Diagram_Chen.drawio     Member 1   ER diagram (Chen notation, weak entities, all attributes)
     ├── Normalization_and_Design_Decisions.md  Member 1   UNF → BCNF proof, CASCADE/RESTRICT reasons
     ├── dbms_proj.drawio / .png    Member 1   earlier ER diagram (superseded)
+    ├── Clinic_Portal_Wireframes.pdf  Member 3   user flow + wireframes of all four tabs
+    ├── Form_Test_Cases.md + Form_Test_Screenshots.pdf          Member 3   Week 2 form validation tests (8/8 pass)
+    ├── Integration_Test_Cases.md + Integration_Test_Screenshots.pdf  Member 3   Week 3 integration/trigger tests (10/10 pass)
     └── TEAM_REVIEW.md             integration review notes
 ```
 
@@ -48,6 +53,7 @@ clinic_portal/
    `database/` and run `source 01_schema_ddl.sql;` then 02, 03, 04 and 05 the same way.
 4. Optional, for test evidence: `mysql -u root -p --force --table clinic_portal < 06_backend_tests.sql`
    Expect exactly 24 `ERROR` lines; every one is labelled `EXPECT ERROR` or `EXPECT ERR_...` in the script.
+   Trigger tests: `mysql -u root -p --force --table clinic_portal < 07_trigger_stress_tests.sql` (Test 1 must end in `ERR_DOUBLE_BOOKING`).
 
 ## Run the app
 
@@ -98,6 +104,6 @@ Each desk maps to one tab:
 2. **Doctor Desk**: pick that doctor, open the visit, add a medicine, order two tests.
 3. **Billing Desk**: choose the visit and press *Generate invoice* → refused, labs still pending (shows the transaction rolled back).
 4. **Diagnostic Lab**: collect both samples, enter results; an out-of-range value is flagged HIGH/LOW.
-5. **Billing Desk**: *Generate invoice* → consultation + all tests summed in one transaction. Choose a payment mode → *Mark as paid*. Download the invoice.
+5. **Billing Desk**: *Generate invoice* → consultation + all tests summed in one transaction. Choose a payment mode → *Mark as paid*. Download the paid invoice from *Recently paid*.
 6. **Analytics**: revenue by department, busy hours, top tests. Open *Show SQL* under any chart to show the GROUP BY / HAVING query. Open *Audit trail* after cancelling an appointment.
 7. **SQL injection**: type `x' OR '1'='1` into the Reception patient search → no rows. Values travel as `%s` parameters, never as SQL text.

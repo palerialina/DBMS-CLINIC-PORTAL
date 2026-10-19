@@ -7,3 +7,4 @@ SOURCE 02_triggers.sql;
 SOURCE 03_procedures_functions.sql;
 SOURCE 04_views_queries.sql;
 SOURCE 05_sample_data.sql;
+SOURCE 05b_dashboard_history.sql;    -- ~3 months of past visits for the Analytics dashboard

@@ -78,6 +78,33 @@ def _invoice_text(v, lines, bill) -> str:
         f"  {'TOTAL':<44}{_money(bill['total_amount']):>14}\n\n{paid}\n")
 
 
+INVOICE_SQL = """
+    SELECT a.appt_id, a.appt_date, a.appt_time,
+           CONCAT(p.first_name, ' ', p.last_name) AS patient, p.phone,
+           d.doctor_name, dep.dept_name,
+           b.bill_id, b.status, b.consultation_fee, b.lab_total, b.total_amount,
+           b.generated_at, b.paid_at, b.payment_mode
+    FROM Bills b
+    JOIN Appointments a  ON a.appt_id    = b.appt_id
+    JOIN Patients p      ON p.patient_id = a.patient_id
+    JOIN Doctors d       ON d.doctor_id  = a.doctor_id
+    JOIN Departments dep ON dep.dept_id  = d.dept_id
+    WHERE b.bill_id = %s"""
+
+
+def _invoice_for_bill(bill_id):
+    """(file name, invoice text) for any bill, paid or not. The consultation
+    line uses the fee frozen on the bill, so an old invoice never changes."""
+    row = run_query(INVOICE_SQL, (bill_id,))[0]
+    labs = run_query(
+        "SELECT t.test_name, t.cost FROM Lab_Orders lo "
+        "JOIN Diagnostic_Tests t ON t.test_id = lo.test_id "
+        "WHERE lo.appt_id = %s ORDER BY lo.lab_order_id", (row["appt_id"],))
+    lines = [(f"Consultation - {row['doctor_name']}", row["consultation_fee"])]
+    lines += [(f"Lab - {r['test_name']}", r["cost"]) for r in labs]
+    return f"invoice_{bill_id:06d}.txt", _invoice_text(row, lines, row)
+
+
 def _billing_desk():
     flash = st.session_state.pop("bill_msg", None)
     if flash:
@@ -156,14 +183,15 @@ def _billing_desk():
                 try:
                     out = call_proc("sp_generate_or_finalize_bill", (appt_id, "PAY", mode, 0, 0))
                     st.session_state["bill_msg"] = (f"Payment of {_money(out[4])} received by {mode}. "
-                                                    f"Bill #{out[3]} is Paid and visit #{appt_id} is Completed.")
+                                                    f"Bill #{out[3]} is Paid and visit #{appt_id} is Completed. "
+                                                    "Download the paid invoice under Recently paid.")
+                    st.session_state["bl_paid_pick"] = out[3]     # pre-select it below
                     st.rerun()
                 except Error as e:
                     st.error(friendly_error(e))
-            bill = run_query("SELECT * FROM Bills WHERE appt_id = %s", (appt_id,))[0]
-            st.download_button("Download invoice (.txt)", _invoice_text(v, lines, bill),
-                               file_name=f"invoice_{bill['bill_id']:06d}.txt", key=f"bl_dl_{appt_id}",
-                               use_container_width=True)
+            name, text = _invoice_for_bill(v["bill_id"])
+            st.download_button("Download invoice (.txt, unpaid)", text, file_name=name,
+                               key=f"bl_dl_{appt_id}", use_container_width=True)
         elif bill_status is None:
             st.caption("No invoice yet. Generating one sums the consultation fee and all lab tests "
                        "in a single transaction.")
@@ -192,6 +220,19 @@ def _recent_paid():
         "lab_total": st.column_config.NumberColumn("Labs ₹", format="%.2f"),
         "total_amount": st.column_config.NumberColumn("Total ₹", format="%.2f"),
     })
+
+    # Paid invoices stay downloadable after the visit leaves the billing list.
+    by_bill = {r["bill"]: r for r in rows}
+    if st.session_state.get("bl_paid_pick") not in by_bill:
+        st.session_state.pop("bl_paid_pick", None)
+    c1, c2 = st.columns([3, 1])
+    bill_id = c1.selectbox(
+        "Paid invoice", list(by_bill), key="bl_paid_pick",
+        format_func=lambda b: f"Bill #{b} · {by_bill[b]['patient']} · {_money(by_bill[b]['total_amount'])}")
+    name, text = _invoice_for_bill(bill_id)
+    c2.markdown("<div style='height:1.75rem'></div>", unsafe_allow_html=True)
+    c2.download_button("Download paid invoice", text, file_name=name, key="bl_paid_dl",
+                       use_container_width=True)
 
 
 # ============================================================== ANALYTICS
