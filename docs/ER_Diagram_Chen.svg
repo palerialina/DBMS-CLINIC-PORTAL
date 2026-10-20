@@ -1,0 +1,299 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="4312" height="3176" viewBox="0 0 4312 3176" font-family="Arial, Helvetica, sans-serif" xmlns:c2pa="http://c2pa.org/manifest"><metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTozZWYyNmI2NS05YWYxLTQyMWUtYjIwNS0wOGViOGY4NDUzOTMAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaMaxz1bNn1hCFTA01YES9sUAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDo0MjYyNDk2Yy0xNTNjLTRhZDQtYjg5OC1iMmFkNzM1ZDhhNmFscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNoKSFuCmPDHl6DhxR6zK+k7gAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggti/LmQFx6vR6SMKZPM9ZRyeX5hQhGxdVi1PvLSgO7h6kZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaPBDtzUpAL0HF8//YJvQZ6oAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRNAAAAAAAAAAAAAAAAAGRoYXNoWCCUyt9QiVHimK4yHKw17MQL3so/+yZwk9R81jGT1KMXn2RuYW1lbmp1bWJmIG1hbmlmZXN0amV4Y2x1c2lvbnOBomVzdGFydBjFZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOjNlZjI2YjY1LTlhZjEtNDIxZS1iMjA1LTA4ZWI4Zjg0NTM5My9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOjI2NDcyZGE5LTEzMzUtNDIxMC05ZmI0LTQ2ODgzZmRjZDk2MnJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCC2L8uZAXHq9HpIwpk8z1lHJ5fmFCEbF1WLU+8tKA7uHqJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggpY7sxFbBxi5YTqBDDeTXmT4f09z+DVNxBh0JZzBD7m+iY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggeqzNDTOTz4ZUXqWxYaXmfrw7fwR8JvDs/VzV55V4HHt0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQJo52IUc4fwvHQaf4y6P1H7vtetyA9bryDYF31XdgaCw7YoCCnvOjcjtb6voVotVcTVYao9GO3k2S88VGQeedN4=</c2pa:manifest></metadata>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="40" y="45" font-size="24" font-weight="bold">Digital Health Clinic &amp; Diagnostic Lab Portal - ER Diagram (Chen notation)</text>
+<text x="40" y="85" font-size="14">Rectangle = entity | double rectangle = weak entity | diamond = relationship | double diamond = identifying relationship | ellipse = attribute</text>
+<text x="40" y="113" font-size="14">Underlined = primary key | dashed underline = partial key of the weak entity (med_id, test_id); prescription_id / lab_order_id are surrogate keys | (FK) = foreign key | 1 / N = cardinality | double line = total participation of the weak entity</text>
+<line x1="450.5" y1="542.5" x2="297.6" y2="389.5" stroke="#000" stroke-width="1"/>
+<line x1="392.5" y1="574.5" x2="242.5" y2="574.5" stroke="#000" stroke-width="1"/>
+<line x1="450.5" y1="606.5" x2="297.6" y2="759.4" stroke="#000" stroke-width="1"/>
+<line x1="1528.2" y1="542.5" x2="1701.7" y2="421.0" stroke="#000" stroke-width="1"/>
+<line x1="1494.2" y1="542.5" x2="1597.7" y2="257.9" stroke="#000" stroke-width="1"/>
+<line x1="1470.9" y1="542.5" x2="1387.8" y2="314.4" stroke="#000" stroke-width="1"/>
+<line x1="1436.8" y1="542.5" x2="1216.0" y2="387.8" stroke="#000" stroke-width="1"/>
+<line x1="1436.8" y1="606.5" x2="1263.6" y2="727.8" stroke="#000" stroke-width="1"/>
+<line x1="1470.9" y1="606.5" x2="1367.3" y2="891.0" stroke="#000" stroke-width="1"/>
+<line x1="1494.2" y1="606.5" x2="1577.2" y2="834.7" stroke="#000" stroke-width="1"/>
+<line x1="1528.2" y1="606.5" x2="1748.5" y2="760.7" stroke="#000" stroke-width="1"/>
+<line x1="2392.5" y1="558.6" x2="2203.9" y2="525.3" stroke="#000" stroke-width="1"/>
+<line x1="2433.2" y1="542.5" x2="2169.1" y2="370.9" stroke="#000" stroke-width="1"/>
+<line x1="2460.9" y1="542.5" x2="2312.5" y2="322.3" stroke="#000" stroke-width="1"/>
+<line x1="2476.3" y1="542.5" x2="2408.5" y2="193.9" stroke="#000" stroke-width="1"/>
+<line x1="2489.3" y1="542.5" x2="2546.5" y2="273.6" stroke="#000" stroke-width="1"/>
+<line x1="2504.9" y1="542.5" x2="2703.0" y2="259.6" stroke="#000" stroke-width="1"/>
+<line x1="2533.7" y1="542.5" x2="2733.6" y2="417.6" stroke="#000" stroke-width="1"/>
+<line x1="2572.5" y1="560.2" x2="2839.2" y2="518.0" stroke="#000" stroke-width="1"/>
+<line x1="3527.1" y1="542.5" x2="3318.7" y2="422.2" stroke="#000" stroke-width="1"/>
+<line x1="3560.5" y1="542.5" x2="3364.8" y2="257.7" stroke="#000" stroke-width="1"/>
+<line x1="3577.4" y1="542.5" x2="3532.8" y2="260.6" stroke="#000" stroke-width="1"/>
+<line x1="3592.0" y1="542.5" x2="3692.5" y2="203.2" stroke="#000" stroke-width="1"/>
+<line x1="3611.3" y1="542.5" x2="3791.6" y2="342.3" stroke="#000" stroke-width="1"/>
+<line x1="3659.8" y1="542.5" x2="3924.9" y2="432.6" stroke="#000" stroke-width="1"/>
+<line x1="3672.5" y1="579.2" x2="3872.4" y2="589.7" stroke="#000" stroke-width="1"/>
+<line x1="3641.4" y1="606.5" x2="3911.3" y2="753.0" stroke="#000" stroke-width="1"/>
+<line x1="3605.8" y1="606.5" x2="3767.0" y2="828.4" stroke="#000" stroke-width="1"/>
+<line x1="3588.4" y1="606.5" x2="3653.2" y2="955.6" stroke="#000" stroke-width="1"/>
+<line x1="364.0" y1="1642.5" x2="249.8" y2="1444.6" stroke="#000" stroke-width="1"/>
+<line x1="294.6" y1="1642.5" x2="148.5" y2="1589.3" stroke="#000" stroke-width="1"/>
+<line x1="294.6" y1="1706.5" x2="148.5" y2="1759.6" stroke="#000" stroke-width="1"/>
+<line x1="364.0" y1="1706.5" x2="249.8" y2="1904.3" stroke="#000" stroke-width="1"/>
+<line x1="1401.0" y1="1642.5" x2="1530.0" y2="1419.0" stroke="#000" stroke-width="1"/>
+<line x1="1437.9" y1="1642.5" x2="1688.3" y2="1497.9" stroke="#000" stroke-width="1"/>
+<line x1="1472.5" y1="1674.5" x2="1647.5" y2="1674.5" stroke="#000" stroke-width="1"/>
+<line x1="1437.9" y1="1706.5" x2="1690.0" y2="1852.0" stroke="#000" stroke-width="1"/>
+<line x1="1401.0" y1="1706.5" x2="1530.2" y2="1930.3" stroke="#000" stroke-width="1"/>
+<line x1="1382.5" y1="1706.5" x2="1382.5" y2="2042.5" stroke="#000" stroke-width="1"/>
+<line x1="1364.0" y1="1706.5" x2="1234.8" y2="1930.3" stroke="#000" stroke-width="1"/>
+<line x1="2501.0" y1="1642.5" x2="2625.1" y2="1427.5" stroke="#000" stroke-width="1"/>
+<line x1="2537.9" y1="1642.5" x2="2788.3" y2="1497.9" stroke="#000" stroke-width="1"/>
+<line x1="2572.5" y1="1674.5" x2="2734.0" y2="1674.5" stroke="#000" stroke-width="1"/>
+<line x1="2537.9" y1="1706.5" x2="2790.0" y2="1852.0" stroke="#000" stroke-width="1"/>
+<line x1="2501.0" y1="1706.5" x2="2625.2" y2="1921.6" stroke="#000" stroke-width="1"/>
+<line x1="2460.1" y1="1642.5" x2="2274.0" y2="1376.6" stroke="#000" stroke-width="1"/>
+<line x1="2394.6" y1="1642.5" x2="2233.2" y2="1583.7" stroke="#000" stroke-width="1"/>
+<line x1="2394.6" y1="1706.5" x2="2158.1" y2="1792.6" stroke="#000" stroke-width="1"/>
+<line x1="2460.1" y1="1706.5" x2="2319.6" y2="1907.1" stroke="#000" stroke-width="1"/>
+<line x1="3592.5" y1="1650.4" x2="3425.8" y2="1605.7" stroke="#000" stroke-width="1"/>
+<line x1="3592.5" y1="1692.0" x2="3361.5" y2="1736.9" stroke="#000" stroke-width="1"/>
+<line x1="3640.0" y1="1706.5" x2="3462.0" y2="1840.6" stroke="#000" stroke-width="1"/>
+<line x1="3666.2" y1="1706.5" x2="3520.9" y2="1991.6" stroke="#000" stroke-width="1"/>
+<line x1="3682.0" y1="1706.5" x2="3677.5" y2="1962.4" stroke="#000" stroke-width="1"/>
+<line x1="3697.4" y1="1706.5" x2="3833.1" y2="1997.3" stroke="#000" stroke-width="1"/>
+<line x1="3722.0" y1="1706.5" x2="3898.8" y2="1849.6" stroke="#000" stroke-width="1"/>
+<line x1="3772.5" y1="1695.2" x2="4008.5" y2="1749.7" stroke="#000" stroke-width="1"/>
+<line x1="3772.5" y1="1653.7" x2="3934.7" y2="1616.2" stroke="#000" stroke-width="1"/>
+<line x1="2394.6" y1="2692.5" x2="2239.1" y2="2635.9" stroke="#000" stroke-width="1"/>
+<line x1="2392.5" y1="2751.5" x2="2179.0" y2="2815.5" stroke="#000" stroke-width="1"/>
+<line x1="2458.7" y1="2756.5" x2="2319.2" y2="2944.4" stroke="#000" stroke-width="1"/>
+<line x1="2482.6" y1="2756.5" x2="2483.1" y2="3062.5" stroke="#000" stroke-width="1"/>
+<line x1="2506.4" y1="2756.5" x2="2646.3" y2="2943.4" stroke="#000" stroke-width="1"/>
+<line x1="2572.5" y1="2751.1" x2="2778.4" y2="2812.1" stroke="#000" stroke-width="1"/>
+<line x1="2569.5" y1="2692.5" x2="2725.7" y2="2635.0" stroke="#000" stroke-width="1"/>
+<line x1="3882.5" y1="2742.5" x2="3882.5" y2="2476.5" stroke="#000" stroke-width="1"/>
+<line x1="3850.5" y1="2742.5" x2="3634.0" y2="2526.0" stroke="#000" stroke-width="1"/>
+<line x1="3792.5" y1="2774.5" x2="3612.5" y2="2774.5" stroke="#000" stroke-width="1"/>
+<line x1="3850.5" y1="2806.5" x2="3633.9" y2="3023.0" stroke="#000" stroke-width="1"/>
+<line x1="3882.5" y1="2806.5" x2="3882.5" y2="3072.5" stroke="#000" stroke-width="1"/>
+<line x1="3914.5" y1="2806.5" x2="4131.0" y2="3022.9" stroke="#000" stroke-width="1"/>
+<line x1="3972.5" y1="2774.5" x2="4152.5" y2="2774.5" stroke="#000" stroke-width="1"/>
+<line x1="3914.5" y1="2742.5" x2="4131.1" y2="2525.9" stroke="#000" stroke-width="1"/>
+<line x1="572.5" y1="574.5" x2="917.5" y2="574.5" stroke="#000" stroke-width="1.5"/>
+<line x1="1392.5" y1="574.5" x2="1047.5" y2="574.5" stroke="#000" stroke-width="1.5"/>
+<line x1="1572.5" y1="574.5" x2="1917.5" y2="574.5" stroke="#000" stroke-width="1.5"/>
+<line x1="2392.5" y1="574.5" x2="2047.5" y2="574.5" stroke="#000" stroke-width="1.5"/>
+<line x1="3492.5" y1="574.5" x2="3097.5" y2="574.5" stroke="#000" stroke-width="1.5"/>
+<line x1="2572.5" y1="574.5" x2="2967.5" y2="574.5" stroke="#000" stroke-width="1.5"/>
+<line x1="2418.5" y1="606.5" x2="1417.5" y2="1106.9" stroke="#000" stroke-width="1.5"/>
+<line x1="1382.5" y1="1642.5" x2="1382.5" y2="1162.5" stroke="#000" stroke-width="7"/><line x1="1382.5" y1="1642.5" x2="1382.5" y2="1162.5" stroke="#fff" stroke-width="3"/>
+<line x1="2482.5" y1="606.5" x2="2482.5" y2="1086.5" stroke="#000" stroke-width="1.5"/>
+<line x1="2482.5" y1="1642.5" x2="2482.5" y2="1162.5" stroke="#000" stroke-width="7"/><line x1="2482.5" y1="1642.5" x2="2482.5" y2="1162.5" stroke="#fff" stroke-width="3"/>
+<line x1="2552.3" y1="606.5" x2="3645.8" y2="1107.6" stroke="#000" stroke-width="1.5"/>
+<line x1="3682.5" y1="1642.5" x2="3682.5" y2="1162.5" stroke="#000" stroke-width="1.5"/>
+<line x1="472.5" y1="1674.5" x2="800.5" y2="1674.5" stroke="#000" stroke-width="1.5"/>
+<line x1="1292.5" y1="1674.5" x2="964.5" y2="1674.5" stroke="#000" stroke-width="1.5"/>
+<line x1="2482.5" y1="2692.5" x2="2482.5" y2="2237.5" stroke="#000" stroke-width="1.5"/>
+<line x1="2482.5" y1="1706.5" x2="2482.5" y2="2161.5" stroke="#000" stroke-width="1.5"/>
+<rect x="392.5" y="542.5" width="180" height="64" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="482.5" y="574.5" font-size="15" font-weight="bold" text-anchor="middle" dominant-baseline="central">Departments</text>
+<ellipse cx="277.4" cy="369.4" rx="50.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="277.4" y="369.4" font-size="12" text-anchor="middle" dominant-baseline="central" text-decoration="underline">dept_id</text>
+<ellipse cx="192.5" cy="574.5" rx="50.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="192.5" y="574.5" font-size="12" text-anchor="middle" dominant-baseline="central">dept_name</text>
+<ellipse cx="277.4" cy="779.5" rx="50.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="277.4" y="779.5" font-size="12" text-anchor="middle" dominant-baseline="central">location</text>
+<rect x="1392.5" y="542.5" width="180" height="64" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="1482.5" y="574.5" font-size="15" font-weight="bold" text-anchor="middle" dominant-baseline="central">Doctors</text>
+<ellipse cx="1728.3" cy="402.4" rx="50.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="1728.3" y="402.4" font-size="12" text-anchor="middle" dominant-baseline="central" text-decoration="underline">doctor_id</text>
+<ellipse cx="1605.6" cy="236.2" rx="55.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="1605.6" y="236.2" font-size="12" text-anchor="middle" dominant-baseline="central">doctor_name</text>
+<ellipse cx="1379.9" cy="292.6" rx="58.5" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="1379.9" y="292.6" font-size="12" text-anchor="middle" dominant-baseline="central">dept_id (FK)</text>
+<ellipse cx="1187.6" cy="368.0" rx="66.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="1187.6" y="368.0" font-size="12" text-anchor="middle" dominant-baseline="central">specialization</text>
+<ellipse cx="1236.8" cy="746.5" rx="51.5" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="1236.8" y="746.5" font-size="12" text-anchor="middle" dominant-baseline="central">license_no</text>
+<ellipse cx="1359.4" cy="912.8" rx="50.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="1359.4" y="912.8" font-size="12" text-anchor="middle" dominant-baseline="central">phone</text>
+<ellipse cx="1585.1" cy="856.4" rx="50.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="1585.1" y="856.4" font-size="12" text-anchor="middle" dominant-baseline="central">email</text>
+<ellipse cx="1777.4" cy="781.0" rx="73.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="1777.4" y="781.0" font-size="12" text-anchor="middle" dominant-baseline="central">consultation_fee</text>
+<rect x="2392.5" y="542.5" width="180" height="64" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="2482.5" y="574.5" font-size="15" font-weight="bold" text-anchor="middle" dominant-baseline="central">Appointments</text>
+<ellipse cx="2157.5" cy="517.2" rx="50.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="2157.5" y="517.2" font-size="12" text-anchor="middle" dominant-baseline="central" text-decoration="underline">appt_id</text>
+<ellipse cx="2138.7" cy="351.2" rx="69.5" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="2138.7" y="351.2" font-size="12" text-anchor="middle" dominant-baseline="central">patient_id (FK)</text>
+<ellipse cx="2298.0" cy="300.9" rx="66.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="2298.0" y="300.9" font-size="12" text-anchor="middle" dominant-baseline="central">doctor_id (FK)</text>
+<ellipse cx="2404.3" cy="172.0" rx="50.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="2404.3" y="172.0" font-size="12" text-anchor="middle" dominant-baseline="central">appt_date</text>
+<ellipse cx="2551.1" cy="251.7" rx="50.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="2551.1" y="251.7" font-size="12" text-anchor="middle" dominant-baseline="central">appt_time</text>
+<ellipse cx="2717.7" cy="238.6" rx="50.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="2717.7" y="238.6" font-size="12" text-anchor="middle" dominant-baseline="central">status</text>
+<ellipse cx="2762.4" cy="399.6" rx="50.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="2762.4" y="399.6" font-size="12" text-anchor="middle" dominant-baseline="central">reason</text>
+<ellipse cx="2887.5" cy="510.3" rx="51.5" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="2887.5" y="510.3" font-size="12" text-anchor="middle" dominant-baseline="central">created_at</text>
+<rect x="3492.5" y="542.5" width="180" height="64" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="3582.5" y="574.5" font-size="15" font-weight="bold" text-anchor="middle" dominant-baseline="central">Patients</text>
+<ellipse cx="3288.1" cy="404.5" rx="51.5" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="3288.1" y="404.5" font-size="12" text-anchor="middle" dominant-baseline="central" text-decoration="underline">patient_id</text>
+<ellipse cx="3350.3" cy="236.6" rx="51.5" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="3350.3" y="236.6" font-size="12" text-anchor="middle" dominant-baseline="central">first_name</text>
+<ellipse cx="3529.3" cy="238.7" rx="50.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="3529.3" y="238.7" font-size="12" text-anchor="middle" dominant-baseline="central">last_name</text>
+<ellipse cx="3699.0" cy="181.4" rx="50.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="3699.0" y="181.4" font-size="12" text-anchor="middle" dominant-baseline="central">dob</text>
+<ellipse cx="3810.0" cy="321.8" rx="50.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="3810.0" y="321.8" font-size="12" text-anchor="middle" dominant-baseline="central">gender</text>
+<ellipse cx="3961.3" cy="417.6" rx="50.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="3961.3" y="417.6" font-size="12" text-anchor="middle" dominant-baseline="central">phone</text>
+<ellipse cx="3922.0" cy="592.3" rx="50.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="3922.0" y="592.3" font-size="12" text-anchor="middle" dominant-baseline="central">email</text>
+<ellipse cx="3942.8" cy="770.1" rx="50.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="3942.8" y="770.1" font-size="12" text-anchor="middle" dominant-baseline="central">address</text>
+<ellipse cx="3782.4" cy="849.5" rx="55.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="3782.4" y="849.5" font-size="12" text-anchor="middle" dominant-baseline="central">blood_group</text>
+<ellipse cx="3657.2" cy="977.6" rx="62.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="3657.2" y="977.6" font-size="12" text-anchor="middle" dominant-baseline="central">registered_at</text>
+<rect x="292.5" y="1642.5" width="180" height="64" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="382.5" y="1674.5" font-size="15" font-weight="bold" text-anchor="middle" dominant-baseline="central">Medications</text>
+<ellipse cx="237.5" cy="1423.3" rx="50.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="237.5" y="1423.3" font-size="12" text-anchor="middle" dominant-baseline="central" text-decoration="underline">med_id</text>
+<ellipse cx="110.0" cy="1575.3" rx="50.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="110.0" y="1575.3" font-size="12" text-anchor="middle" dominant-baseline="central">med_name</text>
+<ellipse cx="110.0" cy="1773.7" rx="50.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="110.0" y="1773.7" font-size="12" text-anchor="middle" dominant-baseline="central">form</text>
+<ellipse cx="237.5" cy="1925.6" rx="50.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="237.5" y="1925.6" font-size="12" text-anchor="middle" dominant-baseline="central">strength</text>
+<rect x="1292.5" y="1642.5" width="180" height="64" fill="#fff" stroke="#000" stroke-width="2"/>
+<rect x="1298.5" y="1648.5" width="168" height="52" fill="none" stroke="#000" stroke-width="2"/>
+<text x="1382.5" y="1674.5" font-size="15" font-weight="bold" text-anchor="middle" dominant-baseline="central">Prescriptions</text>
+<ellipse cx="1542.5" cy="1397.3" rx="69.5" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="1542.5" y="1397.3" font-size="12" text-anchor="middle" dominant-baseline="central">prescription_id</text>
+<ellipse cx="1720.3" cy="1479.5" rx="58.5" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="1720.3" y="1479.5" font-size="12" text-anchor="middle" dominant-baseline="central">appt_id (FK)</text>
+<ellipse cx="1702.5" cy="1674.5" rx="55.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="1702.5" y="1674.5" font-size="12" text-anchor="middle" dominant-baseline="central">med_id (FK)</text>
+<line x1="1666.2" y1="1683.5" x2="1738.8" y2="1683.5" stroke="#000" stroke-width="1" stroke-dasharray="3,2"/>
+<ellipse cx="1720.3" cy="1869.5" rx="50.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="1720.3" y="1869.5" font-size="12" text-anchor="middle" dominant-baseline="central">dosage</text>
+<ellipse cx="1542.5" cy="1951.6" rx="50.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="1542.5" y="1951.6" font-size="12" text-anchor="middle" dominant-baseline="central">frequency</text>
+<ellipse cx="1382.5" cy="2064.5" rx="62.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="1382.5" y="2064.5" font-size="12" text-anchor="middle" dominant-baseline="central">duration_days</text>
+<ellipse cx="1222.5" cy="1951.6" rx="50.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="1222.5" y="1951.6" font-size="12" text-anchor="middle" dominant-baseline="central">notes</text>
+<rect x="2392.5" y="1642.5" width="180" height="64" fill="#fff" stroke="#000" stroke-width="2"/>
+<rect x="2398.5" y="1648.5" width="168" height="52" fill="none" stroke="#000" stroke-width="2"/>
+<text x="2482.5" y="1674.5" font-size="15" font-weight="bold" text-anchor="middle" dominant-baseline="central">Lab_Orders</text>
+<ellipse cx="2637.5" cy="1406.0" rx="58.5" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="2637.5" y="1406.0" font-size="12" text-anchor="middle" dominant-baseline="central">lab_order_id</text>
+<ellipse cx="2820.3" cy="1479.5" rx="58.5" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="2820.3" y="1479.5" font-size="12" text-anchor="middle" dominant-baseline="central">appt_id (FK)</text>
+<ellipse cx="2792.5" cy="1674.5" rx="58.5" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="2792.5" y="1674.5" font-size="12" text-anchor="middle" dominant-baseline="central">test_id (FK)</text>
+<line x1="2752.9" y1="1683.5" x2="2832.1" y2="1683.5" stroke="#000" stroke-width="1" stroke-dasharray="3,2"/>
+<ellipse cx="2820.3" cy="1869.5" rx="50.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="2820.3" y="1869.5" font-size="12" text-anchor="middle" dominant-baseline="central">status</text>
+<ellipse cx="2637.5" cy="1942.9" rx="51.5" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="2637.5" y="1942.9" font-size="12" text-anchor="middle" dominant-baseline="central">ordered_at</text>
+<ellipse cx="2258.8" cy="1355.0" rx="84.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="2258.8" y="1355.0" font-size="12" text-anchor="middle" dominant-baseline="central">sample_collected_at</text>
+<ellipse cx="2191.2" cy="1568.4" rx="58.5" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="2191.2" y="1568.4" font-size="12" text-anchor="middle" dominant-baseline="central">result_value</text>
+<ellipse cx="2116.0" cy="1807.9" rx="58.5" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="2116.0" y="1807.9" font-size="12" text-anchor="middle" dominant-baseline="central">result_notes</text>
+<ellipse cx="2304.7" cy="1928.4" rx="58.5" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="2304.7" y="1928.4" font-size="12" text-anchor="middle" dominant-baseline="central">completed_at</text>
+<rect x="3592.5" y="1642.5" width="180" height="64" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="3682.5" y="1674.5" font-size="15" font-weight="bold" text-anchor="middle" dominant-baseline="central">Bills</text>
+<ellipse cx="3383.1" cy="1594.2" rx="50.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="3383.1" y="1594.2" font-size="12" text-anchor="middle" dominant-baseline="central" text-decoration="underline">bill_id</text>
+<ellipse cx="3309.5" cy="1747.0" rx="58.5" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="3309.5" y="1747.0" font-size="12" text-anchor="middle" dominant-baseline="central">appt_id (FK)</text>
+<ellipse cx="3434.9" cy="1861.0" rx="73.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="3434.9" y="1861.0" font-size="12" text-anchor="middle" dominant-baseline="central">consultation_fee</text>
+<ellipse cx="3510.0" cy="2013.0" rx="50.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="3510.0" y="2013.0" font-size="12" text-anchor="middle" dominant-baseline="central">lab_total</text>
+<ellipse cx="3677.1" cy="1984.4" rx="58.5" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="3677.1" y="1984.4" font-size="12" text-anchor="middle" dominant-baseline="central">total_amount</text>
+<ellipse cx="3843.1" cy="2018.9" rx="50.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="3843.1" y="2018.9" font-size="12" text-anchor="middle" dominant-baseline="central">status</text>
+<ellipse cx="3923.4" cy="1869.6" rx="58.5" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="3923.4" y="1869.6" font-size="12" text-anchor="middle" dominant-baseline="central">generated_at</text>
+<ellipse cx="4052.8" cy="1759.9" rx="50.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="4052.8" y="1759.9" font-size="12" text-anchor="middle" dominant-baseline="central">paid_at</text>
+<ellipse cx="3984.6" cy="1604.7" rx="58.5" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="3984.6" y="1604.7" font-size="12" text-anchor="middle" dominant-baseline="central">payment_mode</text>
+<rect x="2392.5" y="2692.5" width="180" height="64" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="2482.5" y="2724.5" font-size="15" font-weight="bold" text-anchor="middle" dominant-baseline="central">Diagnostic_Tests</text>
+<ellipse cx="2200.6" cy="2621.9" rx="50.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="2200.6" y="2621.9" font-size="12" text-anchor="middle" dominant-baseline="central" text-decoration="underline">test_id</text>
+<ellipse cx="2137.7" cy="2827.9" rx="50.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="2137.7" y="2827.9" font-size="12" text-anchor="middle" dominant-baseline="central">test_name</text>
+<ellipse cx="2303.6" cy="2965.3" rx="50.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="2303.6" y="2965.3" font-size="12" text-anchor="middle" dominant-baseline="central">category</text>
+<ellipse cx="2483.1" cy="3084.5" rx="50.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="2483.1" y="3084.5" font-size="12" text-anchor="middle" dominant-baseline="central">unit</text>
+<ellipse cx="2662.2" cy="2964.7" rx="62.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="2662.2" y="2964.7" font-size="12" text-anchor="middle" dominant-baseline="central">ref_range_low</text>
+<ellipse cx="2827.7" cy="2826.7" rx="66.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="2827.7" y="2826.7" font-size="12" text-anchor="middle" dominant-baseline="central">ref_range_high</text>
+<ellipse cx="2764.1" cy="2620.9" rx="50.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="2764.1" y="2620.9" font-size="12" text-anchor="middle" dominant-baseline="central">cost</text>
+<rect x="3792.5" y="2742.5" width="180" height="64" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="3882.5" y="2774.5" font-size="15" font-weight="bold" text-anchor="middle" dominant-baseline="central">Audit_Logs</text>
+<ellipse cx="3882.5" cy="2454.5" rx="50.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="3882.5" y="2454.5" font-size="12" text-anchor="middle" dominant-baseline="central" text-decoration="underline">log_id</text>
+<ellipse cx="3613.8" cy="2505.8" rx="51.5" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="3613.8" y="2505.8" font-size="12" text-anchor="middle" dominant-baseline="central">table_name</text>
+<ellipse cx="3562.5" cy="2774.5" rx="50.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="3562.5" y="2774.5" font-size="12" text-anchor="middle" dominant-baseline="central">record_id</text>
+<ellipse cx="3613.8" cy="3043.2" rx="50.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="3613.8" y="3043.2" font-size="12" text-anchor="middle" dominant-baseline="central">action</text>
+<ellipse cx="3882.5" cy="3094.5" rx="51.5" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="3882.5" y="3094.5" font-size="12" text-anchor="middle" dominant-baseline="central">old_status</text>
+<ellipse cx="4151.2" cy="3043.2" rx="51.5" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="4151.2" y="3043.2" font-size="12" text-anchor="middle" dominant-baseline="central">new_status</text>
+<ellipse cx="4202.5" cy="2774.5" rx="50.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="4202.5" y="2774.5" font-size="12" text-anchor="middle" dominant-baseline="central">details</text>
+<ellipse cx="4151.2" cy="2505.8" rx="50.0" ry="22.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="4151.2" y="2505.8" font-size="12" text-anchor="middle" dominant-baseline="central">logged_at</text>
+<polygon points="982.5,536.5 1047.5,574.5 982.5,612.5 917.5,574.5" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="982.5" y="574.5" font-size="12" text-anchor="middle" dominant-baseline="central">employs</text>
+<polygon points="1982.5,536.5 2047.5,574.5 1982.5,612.5 1917.5,574.5" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="1982.5" y="574.5" font-size="12" text-anchor="middle" dominant-baseline="central">attends</text>
+<polygon points="3032.5,536.5 3097.5,574.5 3032.5,612.5 2967.5,574.5" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="3032.5" y="574.5" font-size="12" text-anchor="middle" dominant-baseline="central">books</text>
+<polygon points="1382.5,1086.5 1447.5,1124.5 1382.5,1162.5 1317.5,1124.5" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<polygon points="1382.5,1093.5 1436.5,1124.5 1382.5,1155.5 1328.5,1124.5" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="1382.5" y="1124.5" font-size="12" text-anchor="middle" dominant-baseline="central">has</text>
+<polygon points="2482.5,1086.5 2547.5,1124.5 2482.5,1162.5 2417.5,1124.5" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<polygon points="2482.5,1093.5 2536.5,1124.5 2482.5,1155.5 2428.5,1124.5" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="2482.5" y="1124.5" font-size="12" text-anchor="middle" dominant-baseline="central">triggers</text>
+<polygon points="3682.5,1086.5 3748.5,1124.5 3682.5,1162.5 3616.5,1124.5" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="3682.5" y="1124.5" font-size="12" text-anchor="middle" dominant-baseline="central">billed by</text>
+<polygon points="882.5,1636.5 964.5,1674.5 882.5,1712.5 800.5,1674.5" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="882.5" y="1674.5" font-size="12" text-anchor="middle" dominant-baseline="central">prescribed in</text>
+<polygon points="2482.5,2161.5 2552.5,2199.5 2482.5,2237.5 2412.5,2199.5" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="2482.5" y="2199.5" font-size="12" text-anchor="middle" dominant-baseline="central">ordered as</text>
+<text x="665.4" y="574.5" font-size="15" font-weight="bold" text-anchor="middle" dominant-baseline="central" stroke="#fff" stroke-width="6" paint-order="stroke">1</text>
+<text x="1299.6" y="574.5" font-size="15" font-weight="bold" text-anchor="middle" dominant-baseline="central" stroke="#fff" stroke-width="6" paint-order="stroke">N</text>
+<text x="1665.4" y="574.5" font-size="15" font-weight="bold" text-anchor="middle" dominant-baseline="central" stroke="#fff" stroke-width="6" paint-order="stroke">1</text>
+<text x="2299.6" y="574.5" font-size="15" font-weight="bold" text-anchor="middle" dominant-baseline="central" stroke="#fff" stroke-width="6" paint-order="stroke">N</text>
+<text x="3398.2" y="574.5" font-size="15" font-weight="bold" text-anchor="middle" dominant-baseline="central" stroke="#fff" stroke-width="6" paint-order="stroke">1</text>
+<text x="2666.8" y="574.5" font-size="15" font-weight="bold" text-anchor="middle" dominant-baseline="central" stroke="#fff" stroke-width="6" paint-order="stroke">N</text>
+<text x="2324.7" y="653.4" font-size="15" font-weight="bold" text-anchor="middle" dominant-baseline="central" stroke="#fff" stroke-width="6" paint-order="stroke">1</text>
+<text x="1382.5" y="1527.9" font-size="15" font-weight="bold" text-anchor="middle" dominant-baseline="central" stroke="#fff" stroke-width="6" paint-order="stroke">N</text>
+<text x="2482.5" y="721.0" font-size="15" font-weight="bold" text-anchor="middle" dominant-baseline="central" stroke="#fff" stroke-width="6" paint-order="stroke">1</text>
+<text x="2482.5" y="1527.9" font-size="15" font-weight="bold" text-anchor="middle" dominant-baseline="central" stroke="#fff" stroke-width="6" paint-order="stroke">N</text>
+<text x="2647.2" y="650.0" font-size="15" font-weight="bold" text-anchor="middle" dominant-baseline="central" stroke="#fff" stroke-width="6" paint-order="stroke">1</text>
+<text x="3682.5" y="1527.9" font-size="15" font-weight="bold" text-anchor="middle" dominant-baseline="central" stroke="#fff" stroke-width="6" paint-order="stroke">1</text>
+<text x="560.8" y="1674.5" font-size="15" font-weight="bold" text-anchor="middle" dominant-baseline="central" stroke="#fff" stroke-width="6" paint-order="stroke">1</text>
+<text x="1204.2" y="1674.5" font-size="15" font-weight="bold" text-anchor="middle" dominant-baseline="central" stroke="#fff" stroke-width="6" paint-order="stroke">N</text>
+<text x="2482.5" y="2577.3" font-size="15" font-weight="bold" text-anchor="middle" dominant-baseline="central" stroke="#fff" stroke-width="6" paint-order="stroke">1</text>
+<text x="2482.5" y="1821.6" font-size="15" font-weight="bold" text-anchor="middle" dominant-baseline="central" stroke="#fff" stroke-width="6" paint-order="stroke">N</text>
+</svg>

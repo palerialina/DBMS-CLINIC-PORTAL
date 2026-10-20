@@ -79,13 +79,22 @@ Done on 18 Oct (no longer outstanding):
 - ✅ **ER diagram** redrawn in Chen notation (`docs/ER_Diagram_Chen.drawio`): Prescriptions and
   Lab_Orders are weak entities with identifying relationships, every table shows all attributes.
 
-Still worth a look before the viva:
-1. **Notation:** the roadmap asks for **Crow's Foot**; the new diagram is **Chen**. Confirm with
-   the faculty that Chen is fine, or export a Crow's Foot version as well.
-2. **Partial keys in the diagram:** `prescription_id` and `lab_order_id` are drawn with a dashed
-   underline (partial key), but they are unique on their own. The partial keys should be
-   `med_id` and `test_id`, which matches `UNIQUE (appt_id, med_id)` / `UNIQUE (appt_id, test_id)`.
-3. Good viva point to keep: "appointment date must be today or later" cannot be a CHECK in MySQL
+Week 3 clean-up, done 20 Oct (by Member 3, for Riya to review):
+- ✅ **Crow's Foot:** both notations are now in `docs/`: Chen (`ER_Diagram_Chen.drawio` / `.svg`) and
+  Crow's Foot (`dbms_proj.drawio` / `dbms_proj_drawio.png`, plus the Mermaid version in `Member1_Documentation.md`).
+- ✅ **Partial keys:** the dashed underline now marks `med_id` and `test_id`; `prescription_id` and
+  `lab_order_id` are shown as plain surrogate keys (drawio, SVG and the normalization note all match).
+- ✅ **drawio file repaired:** the old `ER_Diagram_Chen.drawio` was not valid XML (unescaped quotes in two
+  labels), so draw.io could refuse to open it. Fixed; the file now parses cleanly.
+- ✅ **Run order** in `01_schema_ddl.sql` and `Member1_Documentation.md` is now 01 → 02 → 03 → 04 → 05 → 05b
+  (same as `00_setup_all.sql`); the obsolete `07_migration_slot_check.sql` reference was removed.
+- ✅ **Index review (Day 15):** checked with `EXPLAIN`; existing indexes are used by the hot queries, and no new
+  index was worth adding (details in the normalization note, B3.6).
+- ✅ `ER_Diagram_Chen.svg` and `Member1_Documentation.md` added to `docs/` (from Riya's upload).
+- Still to do by Riya: confirm with the faculty that the Chen diagram is acceptable alongside the
+  Crow's Foot one.
+
+Viva point to keep: "appointment date must be today or later" cannot be a CHECK in MySQL
    because `CURDATE()` is non-deterministic, which is why it lives in `sp_book_appointment`.
 
 ## What changed in shared files

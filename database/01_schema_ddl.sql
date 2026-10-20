@@ -2,7 +2,8 @@
 -- 01_schema_ddl.sql  |  Digital Health Clinic & Diagnostic Lab Portal
 -- Owner: Member 1 (Database Architect)   |   Target: MySQL 8.0.16+
 -- (CHECK constraints are only enforced from 8.0.16 onwards)
--- Run order for a clean setup: 01 -> 05 -> 03 -> 02 -> 04
+-- Run order for a clean setup: 01 -> 02 -> 03 -> 04 -> 05 -> 05b
+-- (simplest: run 00_setup_all.sql, which loads them in this order)
 -- =====================================================================
 
 DROP DATABASE IF EXISTS clinic_portal;

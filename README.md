@@ -30,7 +30,9 @@ clinic_portal/
 └── docs/
     ├── ER_Diagram_Chen.drawio     Member 1   ER diagram (Chen notation, weak entities, all attributes)
     ├── Normalization_and_Design_Decisions.md  Member 1   UNF → BCNF proof, CASCADE/RESTRICT reasons
-    ├── dbms_proj.drawio / .png    Member 1   earlier ER diagram (superseded)
+    ├── ER_Diagram_Chen.svg        Member 1   image of the Chen diagram, for the report
+    ├── dbms_proj.drawio / .png    Member 1   ER diagram in Crow's Foot notation (key attributes)
+    ├── Member1_Documentation.md   Member 1   ER view, design decisions, procedure hand-off, test checklist, viva Q&A
     ├── Clinic_Portal_Wireframes.pdf  Member 3   user flow + wireframes of all four tabs
     ├── Form_Test_Cases.md + Form_Test_Screenshots.pdf          Member 3   Week 2 form validation tests (8/8 pass)
     ├── Integration_Test_Cases.md + Integration_Test_Screenshots.pdf  Member 3   Week 3 integration/trigger tests (10/10 pass)

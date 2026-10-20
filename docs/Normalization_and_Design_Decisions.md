@@ -91,7 +91,7 @@ All 10 tables are in BCNF.
 All **ON UPDATE** rules are CASCADE (or the default for Audit_Logs, which has no FK), so a changed key value propagates to child rows.
 
 ### B2. Weak entities
-**Prescriptions** and **Lab_Orders** are the weak entities. A prescription line or lab order cannot exist without an Appointment, so it is identified through its owner. In the ER diagram they are double rectangles linked by identifying relationships (`has`, `triggers`, double diamonds). The tables also use a surrogate key (`prescription_id`, `lab_order_id`) for easier joins. `UNIQUE (appt_id, med_id)` and `UNIQUE (appt_id, test_id)` keep the owner-plus-item uniqueness that a pure weak-entity key would give.
+**Prescriptions** and **Lab_Orders** are the weak entities. A prescription line or lab order cannot exist without an Appointment, so it is identified through its owner. In the ER diagram they are double rectangles linked by identifying relationships (`has`, `triggers`, double diamonds). Their partial keys (discriminators) are `med_id` and `test_id`, drawn with a dashed underline. The tables also use a surrogate key (`prescription_id`, `lab_order_id`) for easier joins. `UNIQUE (appt_id, med_id)` and `UNIQUE (appt_id, test_id)` keep the owner-plus-item uniqueness that a pure weak-entity key would give.
 
 ### B3. Other key decisions
 1. **Double-booking:** there is no `UNIQUE(doctor, date, time)`, because it would block re-booking a cancelled slot. Instead `sp_book_appointment` checks under a row lock (`SELECT ... FOR UPDATE`), and Member 2's trigger is a second line of defence.
@@ -99,4 +99,4 @@ All **ON UPDATE** rules are CASCADE (or the default for Audit_Logs, which has no
 3. **Bill snapshot:** see A5.
 4. **Surrogate keys:** integer auto-increment PKs are short and stable. Natural identifiers (phone, license, email) are kept as UNIQUE.
 5. **Error codes:** every business-rule failure raises SQLSTATE 45000 with a message starting `ERR_CODE:`, so the UI shows one consistent format.
-6. **Indexes:** on `appt_date`, `patient_id`, `(doctor_id, appt_date, appt_time)` and `Lab_Orders.status`, for the schedule and pending-lab queries.
+6. **Indexes:** on `appt_date`, `patient_id`, `(doctor_id, appt_date, appt_time)` and `Lab_Orders.status`, for the schedule and pending-lab queries. Checked with `EXPLAIN` in Week 3 (about 170 appointments, 150 bills): the double-booking check uses `idx_appt_slot` (1 row examined) and lab lookups use `uq_lab_order`. A `Bills(status, paid_at)` index for the dashboard was tried, but MySQL still chose a full scan at this size, so it was left out: an unused index only slows down inserts.
