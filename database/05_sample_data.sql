@@ -96,7 +96,7 @@ INSERT INTO Appointments (patient_id, doctor_id, appt_date, appt_time, status, r
 ( 5, 5, CURDATE() - INTERVAL 14 DAY, '11:00:00', 'Completed', 'Loose motions',              NOW() - INTERVAL 15 DAY),
 ( 6, 7, CURDATE() - INTERVAL 14 DAY, '14:00:00', 'Completed', 'Knee pain',                  NOW() - INTERVAL 16 DAY),
 ( 7, 9, CURDATE() - INTERVAL 10 DAY, '15:00:00', 'Completed', 'Fungal rash',                NOW() - INTERVAL 12 DAY),
-( 8, 2, CURDATE() - INTERVAL 7 DAY,  '09:00:00', 'Cancelled', 'Routine checkup',            NOW() - INTERVAL 9 DAY),
+( 8, 2, CURDATE() - INTERVAL 7 DAY,  '09:00:00', 'Scheduled', 'Routine checkup',            NOW() - INTERVAL 9 DAY),
 ( 9, 2, CURDATE() - INTERVAL 7 DAY,  '09:30:00', 'Completed', 'Fatigue, thyroid check',     NOW() - INTERVAL 8 DAY),
 (10, 4, CURDATE() - INTERVAL 3 DAY,  '10:00:00', 'Scheduled', 'Cholesterol review',         NOW() - INTERVAL 5 DAY),
 (11, 1, CURDATE() + INTERVAL 1 DAY,  '10:00:00', 'Scheduled', 'Headache',                   NOW() - INTERVAL 1 DAY),
@@ -105,6 +105,10 @@ INSERT INTO Appointments (patient_id, doctor_id, appt_date, appt_time, status, r
 (14, 8, CURDATE() + INTERVAL 2 DAY,  '16:00:00', 'Scheduled', 'Sports injury',              NOW()),
 (15,10, CURDATE() + INTERVAL 3 DAY,  '12:00:00', 'Scheduled', 'Acne consultation',          NOW()),
 ( 1, 3, CURDATE(),                   '10:00:00', 'Scheduled', 'Cardiac screening',          NOW() - INTERVAL 2 DAY);
+
+-- Appointment 8 is cancelled with an UPDATE (not inserted as 'Cancelled'), so
+-- trg_audit_appointment_cancellation writes a real row into Audit_Logs.
+UPDATE Appointments SET status = 'Cancelled' WHERE appt_id = 8;
 
 -- Prescriptions --------------------------------------------------------
 INSERT INTO Prescriptions (appt_id, med_id, dosage, frequency, duration_days, notes) VALUES
@@ -143,26 +147,32 @@ INSERT INTO Lab_Orders (appt_id, test_id, status, ordered_at, sample_collected_a
 (16,  9, 'Ordered',          NOW() - INTERVAL 3 HOUR, NULL),
 (12, 21, 'Ordered',          NOW() - INTERVAL 1 HOUR, NULL);
 
--- Bills for completed appointments: paid, amounts computed from the data
+-- Bills for completed appointments: paid, amounts computed from the data.
+-- Dated after the visit and its last lab result (not all on 'yesterday'),
+-- so the Revenue-per-day chart shows real days.
 INSERT INTO Bills (appt_id, consultation_fee, lab_total, total_amount, status, generated_at, paid_at, payment_mode)
 SELECT x.appt_id, x.fee, x.lab, x.fee + x.lab, 'Paid',
-       NOW() - INTERVAL 1 DAY - INTERVAL x.appt_id HOUR,
-       NOW() - INTERVAL 1 DAY - INTERVAL x.appt_id HOUR + INTERVAL 10 MINUTE,
+       x.ready + INTERVAL 1 HOUR,                      -- invoiced 1 h after the visit / last lab result
+       x.ready + INTERVAL 1 HOUR + INTERVAL 10 MINUTE, -- paid 10 min later
        ELT(x.appt_id % 3 + 1, 'Cash', 'UPI', 'Card')
 FROM (
-    SELECT a.appt_id,
+    SELECT a.appt_id, a.appt_date, a.appt_time,
            d.consultation_fee AS fee,
            IFNULL((SELECT SUM(t.cost) FROM Lab_Orders lo
                    JOIN Diagnostic_Tests t ON t.test_id = lo.test_id
-                   WHERE lo.appt_id = a.appt_id), 0) AS lab
+                   WHERE lo.appt_id = a.appt_id), 0) AS lab,
+           GREATEST(TIMESTAMP(a.appt_date, a.appt_time),
+                    IFNULL((SELECT MAX(lo.completed_at) FROM Lab_Orders lo WHERE lo.appt_id = a.appt_id),
+                           TIMESTAMP(a.appt_date, a.appt_time))) AS ready
     FROM Appointments a
     JOIN Doctors d ON d.doctor_id = a.doctor_id
     WHERE a.status = 'Completed'
 ) x;
 
 -- Appointment 10: invoice generated, awaiting payment
-INSERT INTO Bills (appt_id, consultation_fee, lab_total, total_amount, status)
-SELECT 10, d.consultation_fee, 350.00, d.consultation_fee + 350.00, 'Generated'
+INSERT INTO Bills (appt_id, consultation_fee, lab_total, total_amount, status, generated_at)
+SELECT 10, d.consultation_fee, 350.00, d.consultation_fee + 350.00, 'Generated',
+       (SELECT MAX(completed_at) FROM Lab_Orders WHERE appt_id = 10) + INTERVAL 1 HOUR
 FROM Doctors d WHERE d.doctor_id = 4;
 
 -- Quick sanity checks

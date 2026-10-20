@@ -16,8 +16,8 @@ and the app was driven through a full patient journey in all four tabs.
 | lab_tab.py | Kanishka | ✅ works inside the app (now passed a pooled connection) |
 | 02_triggers.sql | Kanishka | ✅ received 16 Oct; all triggers work |
 | 04_views_queries.sql | Kanishka | ✅ received 16 Oct; 3 views + Q1–Q10 run, lab tab columns match |
-| 05_sample_data.sql | Kanishka | ✅ received 16 Oct; meets the counts, but see note 1 |
-| 07_trigger_stress_tests.sql | Kanishka | ✅ received; Test 1 fixed by Member 3 (reads appointment 10's slot instead of a hard-coded date) |
+| 05_sample_data.sql | Kanishka | ✅ received 16 Oct; 20 Oct: bill dates and audited cancellation fixed (notes 1–2) |
+| 07_trigger_stress_tests.sql | Kanishka | ✅ received; Test 1 fixed and Tests 4–7 added by Member 3 (20 Oct) |
 | db_connection.py, app.py, billing_tab.py | Member 3 | ✅ done; 20 Oct: paid invoices downloadable |
 | 05b_dashboard_history.sql | Member 3 | ✅ 20 Oct: ~150 past visits over 90 days for the dashboard (answers note 1 and 2 below) |
 | Integration tests (Week 3) | Member 3 | ✅ `docs/Integration_Test_Cases.md`: 10/10 pass |
@@ -34,11 +34,18 @@ needed no change: the bill procedure kept its five parameters.
 
 ## For Kanishka
 
-Update 20 Oct: notes 1–3 and 5 are handled. `05b_dashboard_history.sql` adds the past visits
-and real audit rows (please review it, and fold it into `05` if you prefer); `07_trigger_stress_tests.sql`
-is in the repo with Test 1 fixed; `lab_tab.py` now uses `friendly_error` (two lines). Note 4 is still for the viva.
-One thing left in `05`: its 9 paid bills all have `paid_at` on yesterday, which shows as a spike on the
-*Revenue per day* chart. Using the appointment date for `paid_at` would remove it.
+Update 20 Oct: all notes below are handled except 4, which is for the viva.
+- `05b_dashboard_history.sql` adds about 150 past visits (please review it).
+- `05_sample_data.sql`: appointment 8 is now cancelled with an `UPDATE`, so the audit trigger writes a row,
+  and paid bills are dated after each visit's last lab result instead of all on yesterday. This removes the
+  spike on the *Revenue per day* chart.
+- `07_trigger_stress_tests.sql`: Test 1 fixed. Tests 4–7 added: reschedule into a taken slot, un-cancel into a
+  re-booked slot, test order on a paid bill, and bill re-pricing. It is self-cleaning, so it can be run again.
+- `lab_tab.py` uses `friendly_error`. The old copy uploaded as `database/lab_tab.py` was removed; the app uses `app/lab_tab.py`.
+- `database/00_run_all.sql` was removed: it had paths for one laptop only (`C:/clinic_project/...`) and duplicated
+  `00_setup_all.sql`. `database/session_log.txt` was removed, as already done on the `member-2` branch.
+- `Member2_Test_Evidence.docx` moved to `docs/`: placeholder lines removed, a note on Test 1's date added, and
+  sections 4 (Tests 4–7) and 5 (where the lab tab is tested) added.
 
 1. **Seed data is too thin for the dashboard.** The counts match the brief (5 / 10 / 22 / 15),
    but there are only 16 appointments and 8 paid bills, and every `paid_at` falls on the last

@@ -19,7 +19,7 @@ clinic_portal/
 │   ├── 05_sample_data.sql         Member 2   seed data (5 depts, 10 doctors, 22 tests, 15 patients)
 │   ├── 05b_dashboard_history.sql  Member 3   ~150 past visits over 90 days for the Analytics dashboard
 │   ├── 06_backend_tests.sql       Member 1   constraint / procedure / cascade test evidence
-│   └── 07_trigger_stress_tests.sql Member 2  double-booking + audit trigger tests
+│   └── 07_trigger_stress_tests.sql Member 2  7 trigger tests: double booking, reschedule, un-cancel, paid-bill block, bill recalculation, audit
 ├── app/
 │   ├── app.py                     Member 3   entry point, sidebar, tab loader
 │   ├── db_connection.py           Member 3   connection pool + parameterized helpers
@@ -34,6 +34,7 @@ clinic_portal/
     ├── Clinic_Portal_Wireframes.pdf  Member 3   user flow + wireframes of all four tabs
     ├── Form_Test_Cases.md + Form_Test_Screenshots.pdf          Member 3   Week 2 form validation tests (8/8 pass)
     ├── Integration_Test_Cases.md + Integration_Test_Screenshots.pdf  Member 3   Week 3 integration/trigger tests (10/10 pass)
+    ├── Member2_Test_Evidence.docx  Member 2   trigger and billing test evidence with screenshots
     └── TEAM_REVIEW.md             integration review notes
 ```
 
@@ -53,7 +54,7 @@ clinic_portal/
    `database/` and run `source 01_schema_ddl.sql;` then 02, 03, 04 and 05 the same way.
 4. Optional, for test evidence: `mysql -u root -p --force --table clinic_portal < 06_backend_tests.sql`
    Expect exactly 24 `ERROR` lines; every one is labelled `EXPECT ERROR` or `EXPECT ERR_...` in the script.
-   Trigger tests: `mysql -u root -p --force --table clinic_portal < 07_trigger_stress_tests.sql` (Test 1 must end in `ERR_DOUBLE_BOOKING`).
+   Trigger tests: `mysql -u root -p --force --table clinic_portal < 07_trigger_stress_tests.sql` (expect 4 `ERROR` lines: 3 × `ERR_DOUBLE_BOOKING`, 1 × `ERR_BILL_PAID`; the script restores all data).
 
 ## Run the app
 

@@ -30,7 +30,7 @@ Run after adding `05b_dashboard_history.sql`, to confirm the extra data broke no
 | Script | Result |
 |---|---|
 | `06_backend_tests.sql` (Member 1) | All checks behave as labelled: exactly **24** intentional `ERROR` lines, fixtures removed |
-| `07_trigger_stress_tests.sql` (Member 2, Test 1 fixed) | Test 1 → `ERR_DOUBLE_BOOKING`; Tests 2–3 → `CANCELLED` and `STATUS_CHANGE` rows in `Audit_Logs` |
+| `07_trigger_stress_tests.sql` (Member 2, Test 1 fixed) | Test 1 → `ERR_DOUBLE_BOOKING`; Tests 2–3 → `CANCELLED` and `STATUS_CHANGE` rows in `Audit_Logs`. Tests 4–7 (added 20 Oct) → reschedule and un-cancel rejected (`ERR_DOUBLE_BOOKING`), order on a paid visit rejected (`ERR_BILL_PAID`), extra test re-prices the bill ₹1,200 → ₹1,300 and sets Draft; data restored afterwards |
 | Data checks on `05b` | 0 bookings outside 09:00–16:30 slots; 0 double bookings; every bill's total = consultation fee + lab total |
 
 ## Changes made in Week 3 (Member 3)
