@@ -1,0 +1,248 @@
+mqsql> source C:/clinic_project/database/01_schema_ddl.sql
+Query OK, 13 rows affected (0.16 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Database changed
+Query OK, 0 rows affected (0.04 sec)
+
+Query OK, 0 rows affected (0.07 sec)
+
+Query OK, 0 rows affected (0.06 sec)
+
+Query OK, 0 rows affected (0.07 sec)
+
+Query OK, 0 rows affected (0.09 sec)
+
+Query OK, 0 rows affected (0.12 sec)
+
+Query OK, 0 rows affected (0.12 sec)
+
+Query OK, 0 rows affected (0.09 sec)
+
+Query OK, 0 rows affected (0.06 sec)
+
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> USE clinic_portal;
+Database changed
+mysql> SHOW TABLES;
++-------------------------+
+| Tables_in_clinic_portal |
++-------------------------+
+| appointments            |
+| audit_logs              |
+| bills                   |
+| departments             |
+| diagnostic_tests        |
+| doctors                 |
+| lab_orders              |
+| medications             |
+| patients                |
+| prescriptions           |
++-------------------------+
+10 rows in set (0.00 sec)
+
+mysql> source C:/clinic_project/database/02_triggers.sql
+Database changed
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> SELECT trigger_name FROM information_schema.triggers WHERE trigger_schema='clinic_portal';
++------------------------------------+
+| TRIGGER_NAME                       |
++------------------------------------+
+| trg_check_doctor_availability      |
+| trg_check_doctor_availability_upd  |
+| trg_update_bill_on_lab_order_ins   |
+| trg_update_bill_on_lab_order_upd   |
+| trg_update_bill_on_lab_order_del   |
+| trg_block_lab_order_after_payment  |
+| trg_audit_appointment_cancellation |
++------------------------------------+
+7 rows in set (0.00 sec)
+
+mysql> source C:/clinic_project/database/03_procedures_functions.sql
+Database changed
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> SHOW PROCEDURE STATUS WHERE Db='clinic_portal';
++---------------+------------------------------+-----------+----------------+---------------------+---------------------+---------------+---------+----------------------+----------------------+--------------------+
+| Db            | Name                         | Type      | Definer        | Modified            | Created             | Security_type | Comment | character_set_client | collation_connection | Database Collation |
++---------------+------------------------------+-----------+----------------+---------------------+---------------------+---------------+---------+----------------------+----------------------+--------------------+
+| clinic_portal | sp_book_appointment          | PROCEDURE | root@localhost | 2026-10-13 21:57:19 | 2026-10-13 21:57:19 | DEFINER       |         | cp850                | cp850_general_ci     | utf8mb4_unicode_ci |
+| clinic_portal | sp_generate_or_finalize_bill | PROCEDURE | root@localhost | 2026-10-13 21:57:19 | 2026-10-13 21:57:19 | DEFINER       |         | cp850                | cp850_general_ci     | utf8mb4_unicode_ci |
+| clinic_portal | sp_recalc_bill               | PROCEDURE | root@localhost | 2026-10-13 21:56:36 | 2026-10-13 21:56:36 | DEFINER       |         | cp850                | cp850_general_ci     | utf8mb4_unicode_ci |
++---------------+------------------------------+-----------+----------------+---------------------+---------------------+---------------+---------+----------------------+----------------------+--------------------+
+3 rows in set (0.00 sec)
+
+mysql> SHOW FUNCTION STATUS WHERE Db='clinic_portal';
++---------------+--------------+----------+----------------+---------------------+---------------------+---------------+---------+----------------------+----------------------+--------------------+
+| Db            | Name         | Type     | Definer        | Modified            | Created             | Security_type | Comment | character_set_client | collation_connection | Database Collation |
++---------------+--------------+----------+----------------+---------------------+---------------------+---------------+---------+----------------------+----------------------+--------------------+
+| clinic_portal | fn_lab_total | FUNCTION | root@localhost | 2026-10-13 21:57:19 | 2026-10-13 21:57:19 | DEFINER       |         | cp850                | cp850_general_ci     | utf8mb4_unicode_ci |
++---------------+--------------+----------+----------------+---------------------+---------------------+---------------+---------+----------------------+----------------------+--------------------+
+1 row in set (0.00 sec)
+
+mysql> source C:/clinic_project/database/04_views_queries.sql
+Database changed
+Query OK, 0 rows affected (0.02 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Empty set (0.00 sec)
+
+Empty set (0.00 sec)
+
+Empty set (0.00 sec)
+
+Empty set (0.00 sec)
+
+Empty set (0.00 sec)
+
+Empty set (0.00 sec)
+
+Empty set (0.00 sec)
+
+Empty set (0.00 sec)
+
+Empty set (0.00 sec)
+
+mysql> SHOW FULL TABLES IN clinic_portal WHERE Table_type = 'VIEW';
++--------------------------+------------+
+| Tables_in_clinic_portal  | Table_type |
++--------------------------+------------+
+| vw_department_analytics  | VIEW       |
+| vw_doctor_daily_schedule | VIEW       |
+| vw_pending_lab_reports   | VIEW       |
++--------------------------+------------+
+3 rows in set (0.00 sec)
+
+mysql> source C:/clinic_project/database/05_sample_data.sql
+Database changed
+Query OK, 5 rows affected (0.02 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+Query OK, 10 rows affected (0.01 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+Query OK, 22 rows affected (0.01 sec)
+Records: 22  Duplicates: 0  Warnings: 0
+
+Query OK, 15 rows affected (0.01 sec)
+Records: 15  Duplicates: 0  Warnings: 0
+
+Query OK, 12 rows affected (0.01 sec)
+Records: 12  Duplicates: 0  Warnings: 0
+
+Query OK, 16 rows affected (0.01 sec)
+Records: 16  Duplicates: 0  Warnings: 0
+
+Query OK, 13 rows affected (0.01 sec)
+Records: 13  Duplicates: 0  Warnings: 0
+
+Query OK, 11 rows affected (0.01 sec)
+Records: 11  Duplicates: 0  Warnings: 0
+
+Query OK, 4 rows affected (0.01 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+Query OK, 8 rows affected (0.01 sec)
+Records: 8  Duplicates: 0  Warnings: 0
+
+Query OK, 1 row affected (0.01 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
++--------------+----+
+| tbl          | n  |
++--------------+----+
+| departments  |  5 |
+| doctors      | 10 |
+| tests        | 22 |
+| patients     | 15 |
+| appointments | 16 |
+| lab_orders   | 15 |
+| bills        |  9 |
++--------------+----+
+7 rows in set (0.00 sec)
+
+mysql> SELECT COUNT(*) FROM Medications;
++----------+
+| COUNT(*) |
++----------+
+|       12 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT COUNT(*) FROM Prescriptions;
++----------+
+| COUNT(*) |
++----------+
+|       13 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> INSERT INTO Appointments (patient_id, doctor_id, appt_date, appt_time) VALUES (2, 1, CURDATE() + INTERVAL 1 DAY, '10:00:00');
+ERROR 1644 (45000): ERR_DOUBLE_BOOKING: Doctor already has an appointment at this time
+mysql> SELECT COUNT(*) FROM Appointments;
++----------+
+| COUNT(*) |
++----------+
+|       16 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> UPDATE Appointments SET status='Cancelled' WHERE appt_id=15;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT action, old_status, new_status FROM Audit_Logs;
++-----------+------------+------------+
+| action    | old_status | new_status |
++-----------+------------+------------+
+| CANCELLED | Scheduled  | Cancelled  |
++-----------+------------+------------+
+1 row in set (0.00 sec)
+
+mysql> notee
