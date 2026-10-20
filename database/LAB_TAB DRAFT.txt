@@ -1,9 +1,0 @@
-lab_tab:
-(IN COMMAND PROMPT)
-
-cd /d "%USERPROFILE%\Documents\clinic_project\database"
-//
-dir lab_tab.py
-//
-python -m streamlit run lab_tab.py
-//
