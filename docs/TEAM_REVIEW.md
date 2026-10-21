@@ -91,8 +91,7 @@ Week 3 clean-up, done 20 Oct (by Member 3, for Riya to review):
 - ✅ **Index review (Day 15):** checked with `EXPLAIN`; existing indexes are used by the hot queries, and no new
   index was worth adding (details in the normalization note, B3.6).
 - ✅ `ER_Diagram_Chen.svg` and `Member1_Documentation.md` added to `docs/` (from Riya's upload).
-- Still to do by Riya: confirm with the faculty that the Chen diagram is acceptable alongside the
-  Crow's Foot one.
+
 
 Viva point to keep: "appointment date must be today or later" cannot be a CHECK in MySQL
    because `CURDATE()` is non-deterministic, which is why it lives in `sp_book_appointment`.
